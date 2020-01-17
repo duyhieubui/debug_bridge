@@ -1,4 +1,18 @@
 
+# Differences from the official version
+
+This version adds support for debugging the standalone implementation of Pulpino using Usb-to-spi bridge FTDI 2232 Mini-module.
+The default interface of FTDI 2232 is port 1.
+
+This version is only tested with old version of riscv-binutils-gdb: https://github.com/riscv/riscv-binutils-gdb/tree/2a3cd80
+
+It is not working with the latest riscv-binutils-gdb.
+
+Standalone implementation of Pulpino on Arty A7 100T can be found here: https://github.com/duyhieubui/pulpino
+
+To build this bridge with FTDI 2232 support, run:
+
+   make ft2232=1
 
 # Introduction
 
@@ -7,6 +21,7 @@ This is a GDB server implementation that can be used to connect GDB to a target 
 ### What is supported:
 
 This bridge can be used to connect either to the RTL simulator or the FPGA.
+
 
 ### Requirements:
 
