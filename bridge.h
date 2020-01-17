@@ -3,6 +3,7 @@
 
 #include "mem_zynq_spi.h"
 #include "mem_zynq_apb_spi.h"
+#include "mem_ft2232_spi.h"
 #include "sim.h"
 
 #include "debug_if.h"

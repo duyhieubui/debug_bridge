@@ -10,6 +10,10 @@ else ifdef pulpino
 	CXXFLAGS+=-DFPGA
 	CXX=arm-xilinx-linux-gnueabi-g++
 	SRCS += mem_zynq_spi.cpp
+else ifdef ft2232
+	CXXFLAGS+=-DFT2232 -L../libmpsse/src -I../libmpsse/src -DLIBFTDI1 -lmpsse
+	CXX=g++
+	SRCS += mem_ft2232_spi.cpp
 else
 	CXX=g++
 	SRCS += sim.cpp

@@ -76,12 +76,16 @@ void Bridge::initBridge(Platforms platform, int portNumber, MemIF *memIF, LogIF 
   mem = new FpgaIF();
 #endif
 #else
+  #ifdef FT2232
+  mem = new Ftdi2232IF();
+  #else
   if (portNumber != -1) mem = new SimIF("localhost", portNumber);
   else if (memIF != NULL) mem = memIF;
   else {
     fprintf(stderr, "Either a memory interface or a port number must be provided\n");
     exit (-1);
   }
+  #endif
 #endif
 
   if (platform == unknown) {
